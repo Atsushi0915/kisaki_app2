@@ -11,6 +11,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <%= render 'layouts/navbar', currnet_user: @currentuser %>
+    </header>
+    <main>
+      <%= render 'layout/message' %>
+      <%= yield %>
+    </main>
+    <footer>
+    </footer>
   </body>
 </html>
