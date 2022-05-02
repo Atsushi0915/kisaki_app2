@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+  <div class="container-fluid">
+    <%= link_to "PHOT_APP", root_path, class:"navbar-brand text-light " %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <ul class="navbar-nav ">
+        <% navClass = "nav-item nav-link active px-3 text-light" %>
+        <%= link_to "Signin", new_user_path, class:navClass %>
+        <%= link_to "Users", users_path, class:navClass %>
+        <%= link_to "NewPost", new_post_path, class:navClass %>
+        <%= link_to "Posts", posts_path , class:navClass%>
+        <%= link_to "Logout", logout_path, class:navClass %>
+        <%= link_to "Login", login_path, class:navClass %>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+  
+  

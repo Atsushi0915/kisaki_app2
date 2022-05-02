@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   before_action :not_login_user, only: [:show, :index, :edit]
-  before_action :login_user, only: [:new, :create]
+  before_action :login_user, only: [:new, :creates]
 
   def new
     @user = User.new
