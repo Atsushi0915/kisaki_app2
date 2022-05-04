@@ -1,2 +1,19 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<%= tag.h2 "ユーザー一覧" %>
+  <table class="table">
+    <thead>
+      <%= tag.tr %>
+        <%= tag.th %>
+        <%= tag.th User.human_attribute_name(:name)%>
+        <%= tag.th User.human_attribute_name(:email) %>
+        <%= tag.th User.human_attribute_name(:created_at)%>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <%= tag.tr %>
+          <%= tag.td image_tag user.icon_image, style:"width: 80px;"%>
+          <%= tag.td user.name %>
+          <%= tag.td user.email %>
+          <%= tag.td user.created_at %>
+      <% end %>
+    </tbody>
+  <table>
