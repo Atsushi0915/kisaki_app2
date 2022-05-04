@@ -22,8 +22,10 @@
       <%= render 'layouts/navbar', currnet_user: @currentuser %>
     </header>
     <main>
-      <%= render 'layouts/message' %>
-      <%= yield %>
+      <div class="container">
+        <%= render 'layouts/message' %>
+        <%= yield %>
+      </div>
     </main>
     <footer>
     </footer>
