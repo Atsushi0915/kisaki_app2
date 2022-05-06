@@ -1,5 +1,5 @@
 class Post < ApplicationRecor
-  before_validation :set_nameless_name
+  before_validation :set_nameless_title
 
   validates :title, presence: true, length: {maximum: 40}
   validates :content, presence: true, length: {maximum: 300}

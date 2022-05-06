@@ -10,7 +10,7 @@
     <tbody>
       <% @users.each do |user| %>
         <%= tag.tr %>
-          <%= tag.td image_tag user.icon_image, style:"width: 80px;"%>
+          <%= tag.td image_tag user.icon_image, style:"width: 80px;" if user.icon_image.attached?%>
           <%= tag.td user.name %>
           <%= tag.td user.email %>
           <%= tag.td user.created_at %>
