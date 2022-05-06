@@ -1,0 +1,4 @@
+<div class="container-fluid my-2">
+  <%= tag.div flash.notice, class:"alert alert-warning" if flash.notice.present? %>
+  <%= tag.div flash.alert, class:"alert alert-danger" if flash.alert.present? %>
+</div>

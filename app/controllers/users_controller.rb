@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to users_url, notice: "新規登録しました。"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

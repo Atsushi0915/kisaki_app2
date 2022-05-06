@@ -1,5 +1,7 @@
-class Post < ApplicationRecor
+class Post < ApplicationRecord
   before_validation :set_nameless_title
+
+  has_one_attached :post_image
 
   validates :title, presence: true, length: {maximum: 40}
   validates :content, presence: true, length: {maximum: 300}

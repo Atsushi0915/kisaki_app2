@@ -13,9 +13,10 @@ class PostsController < ApplicationController
     @post = @current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: "新規登録しました。"
+      redirect_to @post, notice: "新規「#{@post.name}」を投稿しました。"
     else
-      render :new
+      flash.alert = "投稿失敗しました。"
+      render :new, status: :unprocessable_entity
     end
   end
 
@@ -23,7 +24,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: "更新しました。"
     else
-      render :edit
+      render :edit, status: :unprocessable_entity
     end
   end
 
