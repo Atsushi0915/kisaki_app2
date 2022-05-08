@@ -1,6 +1,6 @@
 <%= tag.h2 "ユーザー一覧" %>
-  <table class="table">
-    <thead>
+  <table class="table table-hover">
+    <thead class="table-primary">
       <%= tag.tr %>
         <%= tag.th %>
         <%= tag.th User.human_attribute_name(:name)%>
@@ -10,7 +10,7 @@
     <tbody>
       <% @users.each do |user| %>
         <%= tag.tr %>
-          <%= tag.td image_tag user.icon_image, style:"width: 80px;" if user.icon_image.attached?%>
+          <%= tag.td image_tag user.icon_image, style:"width: 80px; border-redius: 30%;" if user.icon_image.attached?%>
           <%= tag.td user.name %>
           <%= tag.td user.email %>
           <%= tag.td user.created_at %>

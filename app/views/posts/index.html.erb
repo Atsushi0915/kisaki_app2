@@ -1,2 +1,20 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<%= tag.h2 "投稿一覧", class:"mt-4" %>
+  <table class="table table-hover">
+    <thead class="table-primary">
+      <%= tag.tr %>
+        <%= tag.th Post.human_attribute_name(:title) %>
+        <%= tag.th Post.human_attribute_name(:content) %>
+        <%= tag.th Post.human_attribute_name(:post_image) %>
+    </thead>
+    <tbody>
+      <% @post.each do |post| %>
+        <% if post.del_flag != 1 %>
+          <%= tag.tr %>
+            <%= tag.td link_to post.title, post %>
+            <%= tag.td post.content%>
+            <%= tag.td image_tag post.post_image, style:"height: 70px;" if post.post_image.attached? %>
+        
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
