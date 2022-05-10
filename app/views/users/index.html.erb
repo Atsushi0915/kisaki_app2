@@ -1,19 +1,24 @@
 <%= tag.h2 "ユーザー一覧" %>
-  <table class="table table-hover">
-    <thead class="table-primary">
-      <%= tag.tr %>
-        <%= tag.th %>
-        <%= tag.th User.human_attribute_name(:name)%>
-        <%= tag.th User.human_attribute_name(:email) %>
-        <%= tag.th User.human_attribute_name(:created_at)%>
-    </thead>
-    <tbody>
-      <% @users.each do |user| %>
+  <div class="table-respondive">
+    <table class="table table-hover text-nowrap">
+      <thead class="table-primary">
         <%= tag.tr %>
-          <%= tag.td image_tag user.icon_image, style:"width: 80px; border-redius: 30%;" if user.icon_image.attached?%>
-          <%= tag.td user.name %>
-          <%= tag.td user.email %>
-          <%= tag.td user.created_at %>
-      <% end %>
-    </tbody>
-  <table>
+          <%= tag.th User.human_attribute_name(:name) %>
+          <%= tag.th User.human_attribute_name(:email) %>
+          <%= tag.th User.human_attribute_name(:created_at) %>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <% if user.del_flag != 1 %>
+            <%= tag.tr %>
+              <td class="d-flex align-items-start">
+                <%= image_tag user.icon_image, style:"width: 80px; border-redius: 30%;" if user.icon_image.attached?%>
+                <%= link_to user.name, user %>
+              </td>
+              <%= tag.td user.email %>
+              <%= tag.td user.created_at %>
+          <% end %>
+        <% end %>
+      </tbody>
+    <table>
+  </div>

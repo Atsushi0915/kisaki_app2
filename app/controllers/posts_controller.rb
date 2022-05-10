@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def destroy
     @post.del_flag = 1
     @post.save
-    redirect_to @post, notice: "削除しました。"
+    redirect_to posts_path, notice: "削除しました。"
   end
 
   def show

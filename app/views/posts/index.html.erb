@@ -5,15 +5,16 @@
         <%= tag.th Post.human_attribute_name(:title) %>
         <%= tag.th Post.human_attribute_name(:content) %>
         <%= tag.th Post.human_attribute_name(:post_image) %>
+        <%= tag.th Post.human_attribute_name(:created_at) %>
     </thead>
     <tbody>
       <% @post.each do |post| %>
         <% if post.del_flag != 1 %>
           <%= tag.tr %>
             <%= tag.td link_to post.title, post %>
-            <%= tag.td post.content%>
+            <%= tag.td post.content %>
             <%= tag.td image_tag post.post_image, style:"height: 70px;" if post.post_image.attached? %>
-        
+            <%= tag.td post.created_at %>
         <% end %>
       <% end %>
     </tbody>

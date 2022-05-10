@@ -1,2 +1,17 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<%= tag.h2 "#{@post.user.name}の投稿" %>
+  <div class="row mt-4">
+    <div class="col">
+      <%= image_tag @post.post_image, style:"width: 250px;" %>
+    </div>
+    <div class="col">
+      <%= tag.h4 @post.title %>
+      <%= tag.div @post.content %>
+      <div class="d-flex flex-row my-3">
+        <%= button_to "編集", edit_post_path, class:"btn btn-primary" %>
+        <%= button_to "削除", @post, method: :delete, form: {data: {turbo_confirm: "「#{@post.title}」を削除します。よろしいですか？"}}, class:"btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+  <div class="comments my-4">
+    <%= render "comments/new" %>
+  </div>
