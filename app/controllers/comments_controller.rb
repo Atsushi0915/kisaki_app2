@@ -1,11 +1,12 @@
 class CommentsController < ApplicationController
   def create
-    @comment = @current_user.comments.new(comment_params)
-    if @comment.save
-      redirect_to @post, notice:"コメントを追記しました。"
+    @comments = @current_user.comments.new(comment_params)
+    if @comments.save
+      redirect_to post_show(@comment.post), notice:"コメントを追記しました。"
     else
       flash.alert = "コメントできませんでした。"
-      render('posts/show')
+      p "==================-"
+      redirect_to post_path(@comments.post), status: :unprocessable_entity
     end
   end
 

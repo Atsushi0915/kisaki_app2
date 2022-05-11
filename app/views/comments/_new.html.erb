@@ -1,5 +1,5 @@
 <div>
-  <%= form_with model: @post do |f| %>
+  <%= form_with model: @comment, url: comments_create_path do |f| %>
     <%= f.label :comment_text %>
     <%= f.text_field :comment_text, class:"form-control mt-2" %>
     <%= f.hidden_field :post_id, value: @post.id %>
