@@ -14,7 +14,7 @@
             <%= tag.td link_to post.title, post %>
             <%= tag.td post.content %>
             <%= tag.td image_tag post.post_image, style:"height: 70px;" if post.post_image.attached? %>
-            <%= tag.td post.created_at %>
+            <%= tag.td l post.created_at %>
         <% end %>
       <% end %>
     </tbody>
