@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     if @post.update(post_params)
       redirect_to @post, notice: "更新しました。"
     else
+      flash.alert = "更新失敗しました。"
       render :edit, status: :unprocessable_entity
     end
   end

@@ -7,7 +7,7 @@
       <%= tag.h4 @post.title %>
       <%= tag.div @post.content %>
       <div class="d-flex flex-row my-3">
-        <%= button_to "編集", edit_post_path, class:"btn btn-primary" %>
+        <%= button_to "編集", edit_post_path(@post.id), method: :get, class:"btn btn-primary" %>
         <%= button_to "削除", @post, method: :delete, form: {data: {turbo_confirm: "「#{@post.title}」を削除します。よろしいですか？"}}, class:"btn btn-danger" %>
       </div>
     </div>

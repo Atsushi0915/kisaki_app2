@@ -1,0 +1,16 @@
+<%= form_with model:@post do |f| %>
+
+    <%=tag.div class:"form-group" %>
+      <%= f.label :title %>    
+      <%= f.text_field :title, class:"form-control" %>
+
+    <%= tag.div class:"form-group" %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class:"form-control"%>
+
+    <%= tag.div class:"form-group" %>
+      <%= f.label :post_image %>
+      <%= tag.div f.file_field :post_image %>
+    
+    <%= f.submit "投稿", class:"btn btn-primary mt-4" %>
+  <% end %>
